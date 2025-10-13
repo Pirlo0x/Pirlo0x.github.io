@@ -3,11 +3,11 @@
 <head>
   <title>Test Page</title>
   <script>
-    fetch("http://internal.av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
+    fetch("https://internal.av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
       .then(r => {
         console.log("First fetch status:", r.status);
         if (r.ok) {
-          new Image().src = "http://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
+          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
         }
       })
       .catch(err => console.warn("First fetch failed:", err));
