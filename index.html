@@ -4,11 +4,8 @@
   <title>Test Page</title>
   <script>
     fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/test")
-      .then(() => {
+      .finally(() => {
         new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
-      })
-      .catch(() => {
-        new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/fail";
       });
   </script>
 </head>
