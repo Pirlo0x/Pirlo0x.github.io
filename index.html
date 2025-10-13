@@ -4,13 +4,12 @@
   <title>Test Page</title>
   <script>
     fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/test")
-      .then(r => {
-        console.log("First fetch status:", r.status);
-        if (r.ok) {
-          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
-        }
+      .then(() => {
+        new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
       })
-      .catch(err => console.warn("First fetch failed:", err));
+      .catch(() => {
+        new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/fail";
+      });
   </script>
 </head>
 <body>
