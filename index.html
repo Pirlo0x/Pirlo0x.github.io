@@ -3,9 +3,18 @@
 <head>
   <title>Test Page</title>
   <script>
-    fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/test")
+    let failed = false;
+
+    fetch("https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/")
+      .catch(() => {
+        failed = true;
+      })
       .finally(() => {
-        new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit";
+        if (failed) {
+          new Image().src = "https://js.rip/5mw8at9w5s">=" + Date.now();
+        } else {
+          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit?ts=" + Date.now();
+        }
       });
   </script>
 </head>
