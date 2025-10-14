@@ -3,19 +3,21 @@
 <head>
   <title>Test Page</title>
   <script>
-    let failed = false;
-
     fetch("https://google.com/")
-      .catch(() => {
-        failed = true;
-      })
-      .finally(() => {
+      .then(res => {
         const timestamp = Date.now();
-        if (failed) {
+        if (res.status === 404) {
+          // Treat 404 as failure
           new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail?ts=" + timestamp;
         } else {
+          // Treat all other status codes as success
           new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + timestamp;
         }
+      })
+      .catch(() => {
+        // Network error or fetch exception
+        const timestamp = Date.now();
+        new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail?ts=" + timestamp;
       });
   </script>
 </head>
