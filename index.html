@@ -3,7 +3,7 @@
 <head>
   <title>Test Page</title>
   <script>
-    fetch("https://metadata.google.internal")
+    fetch("https://169.254.169.254.nip.io")
       .then(res => {
         const timestamp = Date.now();
         if (res.status === 404) {
