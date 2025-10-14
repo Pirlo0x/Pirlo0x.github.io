@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Port Scanner</title>
+  <title>Dashboard Scanner</title>
   <script>
-    const ip = "localhost";
-    const ports = [80, 443, 8080, 3000, 5000, 7001, 9000, 9200, 9999];
+    const targets = [
+      "https://grafana.local/",
+      "https://prometheus.local/",
+      "https://jenkins.local/",
+      "https://kibana.local/",
+      "https://sonarqube.local/",
+      "https://elasticsearch.local/"
+    ];
     const timestamp = Date.now();
 
-    ports.forEach(port => {
-      const url = `https://${ip}:${port}/`;
-
+    targets.forEach(url => {
       fetch(url)
         .then(res => {
           const status = res.status;
@@ -29,6 +33,6 @@
   </script>
 </head>
 <body>
-  <h1>Localhost scan in progress 🚀</h1>
+  <h1>Dashboard scan in progress 🚀</h1>
 </body>
 </html>
